@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load embed_video_tags %}
+{% url 'publications' year=2013  %}
+{% block title %}{{STATIC_URL}}{% endblock %}
+{% block content %}
+	<div style=" background:#eee;font-family:texgyreadventorregular; font-size:28px; border-bottom:4px solid #ccc;">
+		<div style="width: 1000px; margin: 0px auto; padding-top:10px; padding-bottom:10px;">	
+			<span class="maintitle" style="font-family: texgyreadventorbold;">BLOG</span>
+		</div>
+	</div>
+	<div style="width: 1000px; margin: 0px auto; padding-top:12px;">
+	
+	<div style="width:1000px; margin-bottom:24px;  margin-right:24px;">
+		<div class="subtitleb" style="border-bottom:1px solid #ccc; margin-bottom:4px;">
+			Filter by category
+		</div>
+		<div style="font-size:9pt;">
+		<span class="sansb">
+			<a class="{% if cat_id == 0%}selected_cat{% endif %}" href="{% url 'articles' %}">SEE ALL</a>
+		</span> &nbsp;&mdash;&nbsp;
+		{% for c in categories %}
+		<span class="sansb">
+			<a class="{% if cat_id == c.id%}selected_cat{% endif %}" href="{% url 'articles' c.title|slugify c.id %}">{{c.title|upper}}</a>
+		</span>
+		{% if not forloop.last %}
+			&nbsp; &dash; &nbsp;
+			{% endif %}
+		{% endfor %}
+		</div>
+	</div>
+	
+	{% for a in articles %}
+	<div style="width:460px; margin-bottom:24px; float: left; margin-right:24px;">
+		<div class="subtitleb" style="border-bottom:1px solid #ccc; margin-bottom:18px;">
+			<a class="subtitleb" href='{% url 'article' a.title|slugify a.id%}'>{{a.title}}</a>
+		</div>
+		
+		<div style="float:left; border:1px solid #ccc; padding:4px; ">
+			<a href="{% url 'article' a.title|slugify  a.id %}"><img src="{{ MEDIA_URL  }}/l_tn{{a.getFirstImage}}"/></a>
+		</div>
+		
+		<div style="float:left; margin-left:10px; width:320px;" class="text">{{a.text | truncatechars:120}}
+			<div class="tinytitle" style="text-align: left;"> <a class="tinytitleb" href='{% url 'article' a.title|slugify  a.id %}'>read</a> 
+			</div>
+			
+					<div class="mini_date" style="margin-bottom:10px; padding-top:1px;">{{a.date_created}}</div>
+			
+		</div>
+		
+	</div>
+	{% endfor %}
+		<div class="cl"></div>
+	
+	</div>
+	<div class="cl"></div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load embed_video_tags %}
+{% block title %}{{STATIC_URL}}{% endblock %}
+{% block content %}
+<script type="text/javascript">
+function deselect(id) {
+    $(".pop"+id).toggle(); 
+}
+
+function deselectAndClose(id) {
+    $(".pop"+id).toggle();
+}
+
+
+
+</script>
+
+{% for y, ypubs in pubs %}	
+	{% for pub in ypubs %}
+	<script type="text/javascript">
+		
+	$(function() {
+	    $("#bibtex-{{pub.id}}").on('click', function() {
+	        if($(this).hasClass("selected")) {
+	            deselect({{pub.id}});        
+	            $(this).addClass("selected");	       
+	        } else {
+	            $(this).addClass("selected");
+	        }
+	        return false;
+	    });
+	    
+	    $(".close{{pub.id}}").on('click', function() {
+	        deselectAndClose({{pub.id}});
+	        return false;
+	    });
+	});
+		
+	</script>
+	{% endfor %}
+{% endfor %}
+	
+
+
+		<div style=" background:#eee;font-family:texgyreadventorregular; font-size:28px; border-bottom:4px solid #ccc;">
+		<div style="width: 1000px; margin: 0px auto; padding-top:10px; padding-bottom:10px;">		
+<span class="maintitle" style="font-family: texgyreadventorbold;">PUBLICATIONS</span>
+		</div>
+	</div>
+	
+	<div style="width: 1000px; margin: 0px auto;padding-top:16px;">
+	{% for y, ypubs in pubs %}
+	
+	
+		<div style="border-bottom:1px solid #ddd;"><a href="#" class="subtitleb">{{y}}</a></div>
+		<ul style="width:680px;">
+		{% for pub in ypubs %}
+			<li class="text" style="margin-left:18px; padding:3px; padding-bottom:6px;" >
+				<span>
+					<span style="color:#555;">{{pub.authors}}</span>, 
+					"{{pub.title}}" @ 
+					<span style="color:#555;">{{pub.conference_id.title}}</span> <br/>
+				</span>
+			<a href='#' id="bibtex-{{pub.id}}" class="selected" style="font-size:9pt;">BibTeX</a>
+			<span style="color:#ccc;"> &dash; </span> 
+			<a href='{{ MEDIA_URL }}{{pub.file}}' style="font-size:9pt;">PDF</a>
+						<div class="messagepop pop{{pub.id}}"><a class="close{{pub.id}} sansb" href="#">[x] close</a><br/>
+			<div class="code_text" style="font-size:9pt; padding-top:6px;"><pre>{{pub.bibtex|linebreaksbr}}</pre></div></div>
+			</li>
+		{% endfor %}
+		</ul>
+	{% endfor %}
+	
+	
+	
+	</div>
+	<div class="cl"></div>
+{% endblock %}

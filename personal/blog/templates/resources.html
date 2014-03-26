@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load embed_video_tags %}
+{% url 'publications' year=2013  %}
+
+{% block title %}{{STATIC_URL}}{% endblock %}
+{% block content %}
+	<script type="text/javascript">
+			$(document).ready(function(){
+				//Examples of how to assign the Colorbox event to elements
+				$(".figures").colorbox({rel:'figures'});
+			});
+	</script>
+	<div style=" background:#eee;font-family:texgyreadventorregular; font-size:28px; border-bottom:4px solid #ccc;">
+		<div style="width: 1000px; margin: 0px auto; padding-top:10px; padding-bottom:10px;">	
+<span class="maintitle" style="font-family: texgyreadventorbold;">CODES / RESOURCES</span>
+		</div>
+	</div>
+	<div style="width: 1000px; margin: 0px auto; padding-top:16px;">
+	{% for r in resources %}
+		<div style="width:560px; border-bottom:1px solid #ccc;">
+			<a class="subtitleb" href="{{ MEDIA_URL }}{{r.file}}">{{r.title}}</a>
+		</div>
+	<div style="margin-bottom:18px; padding:8px;">
+		<div style="padding:4px; padding-left:0; text-align:left;" class="tinytitle">
+			<span style="background: #eee; padding:2px;">{{r.programming_language}}</span>
+		</div>
+		<div style="width:530px; margin-bottom:4px; padding-top:2px;" class="text">
+			{{r.details|linebreaksbr}}
+		</div>
+		<div style="text-align: left; font-size:9pt;" class="reg">
+			<a href="{{ MEDIA_URL }}{{r.file}}" class="bold">DOWNLOAD</a> 
+			{% if r.git_link|length %}
+				&nbsp;<span style="color:#aaa;">&mdash;</span>&nbsp; 
+				go to <a href="{{ MEDIA_URL }}{{r.file}}"  class="reg">github link</a>
+			{% endif %}
+		</div>
+	</div>
+	{% endfor %}
+	
+	<div class="cl"></div>
+	
+	</div>
+	<div class="cl"></div>
+{% endblock %}

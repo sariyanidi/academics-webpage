@@ -1,0 +1,393 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-12 21:40+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Hello"
+msgstr "Selam"
+
+#: blog/cmodels.py:20
+msgid "fname"
+msgstr "File Name"
+
+#: blog/settings.py:61
+msgid "English"
+msgstr ""
+
+#: blog/settings.py:62
+msgid "Spanish"
+msgstr ""
+
+#: blog/gdata2/src/embed_video/fields.py:45
+msgid "URL could not be recognized."
+msgstr ""
+
+#: blog/gdata2/src/embed_video/fields.py:47
+msgid ""
+"ID of this video could not "
+"be                                                 recognized."
+msgstr ""
+
+#: blog/templates/the_template.html:2
+msgid "Fname"
+msgstr "File Name"
+
+#: blog/templates/admin/404.html:4 blog/templates/admin/404.html.py:8
+msgid "Page not found"
+msgstr ""
+
+#: blog/templates/admin/404.html:10
+msgid "We're sorry, but the requested page could not be found."
+msgstr ""
+
+#: blog/templates/admin/500.html:6 blog/templates/admin/app_index.html:7
+#: blog/templates/admin/base.html:47 blog/templates/admin/change_form.html:18
+#: blog/templates/admin/change_list.html:40
+#: blog/templates/admin/delete_confirmation.html:6
+#: blog/templates/admin/delete_selected_confirmation.html:6
+#: blog/templates/admin/invalid_setup.html:6
+#: blog/templates/admin/object_history.html:6
+#: blog/templates/admin/auth/user/change_password.html:13
+msgid "Home"
+msgstr ""
+
+#: blog/templates/admin/500.html:7
+msgid "Server error"
+msgstr ""
+
+#: blog/templates/admin/500.html:11
+msgid "Server error (500)"
+msgstr ""
+
+#: blog/templates/admin/500.html:14
+msgid "Server Error <em>(500)</em>"
+msgstr ""
+
+#: blog/templates/admin/500.html:15
+msgid ""
+"There's been an error. It's been reported to the site administrators via "
+"email and should be fixed shortly. Thanks for your patience."
+msgstr ""
+
+#: blog/templates/admin/actions.html:4
+msgid "Run the selected action"
+msgstr ""
+
+#: blog/templates/admin/actions.html:4
+msgid "Go"
+msgstr ""
+
+#: blog/templates/admin/actions.html:11
+msgid "Click here to select the objects across all pages"
+msgstr ""
+
+#: blog/templates/admin/actions.html:11
+#, python-format
+msgid "Select all %(total_count)s %(module_name)s"
+msgstr ""
+
+#: blog/templates/admin/actions.html:13
+msgid "Clear selection"
+msgstr ""
+
+#: blog/templates/admin/app_index.html:10 blog/templates/admin/index.html:21
+#, python-format
+msgid "%(name)s"
+msgstr ""
+
+#: blog/templates/admin/base.html:28
+msgid "Welcome,"
+msgstr ""
+
+#: blog/templates/admin/base.html:33
+msgid "Documentation"
+msgstr ""
+
+#: blog/templates/admin/base.html:36
+#: blog/templates/admin/auth/user/change_password.html:17
+#: blog/templates/admin/auth/user/change_password.html:51
+msgid "Change password"
+msgstr ""
+
+#: blog/templates/admin/base.html:38
+msgid "Log out"
+msgstr ""
+
+#: blog/templates/admin/base_site.html:4
+msgid "Django site admin"
+msgstr ""
+
+#: blog/templates/admin/base_site.html:7
+msgid "Django administration dedi..."
+msgstr ""
+
+#: blog/templates/admin/change_form.html:21 blog/templates/admin/index.html:33
+msgid "Add"
+msgstr ""
+
+#: blog/templates/admin/change_form.html:33
+#: blog/templates/admin/object_history.html:10
+msgid "History"
+msgstr ""
+
+#: blog/templates/admin/change_form.html:35
+#: blog/templates/admin/edit_inline/stacked.html:9
+#: blog/templates/admin/edit_inline/tabular.html:30
+msgid "View on site"
+msgstr ""
+
+#: blog/templates/admin/change_form.html:46
+#: blog/templates/admin/change_list.html:67 blog/templates/admin/login.html:17
+#: blog/templates/admin/auth/user/change_password.html:27
+msgid "Please correct the error below."
+msgstr ""
+
+#: blog/templates/admin/change_form.html:46
+#: blog/templates/admin/change_list.html:67 blog/templates/admin/login.html:17
+#: blog/templates/admin/auth/user/change_password.html:27
+msgid "Please correct the errors below."
+msgstr ""
+
+#: blog/templates/admin/change_list.html:58
+#, python-format
+msgid "Add %(name)s"
+msgstr ""
+
+#: blog/templates/admin/change_list.html:78
+msgid "Filter"
+msgstr ""
+
+#: blog/templates/admin/change_list_results.html:17
+msgid "Remove from sorting"
+msgstr ""
+
+#: blog/templates/admin/change_list_results.html:18
+#, python-format
+msgid "Sorting priority: %(priority_number)s"
+msgstr ""
+
+#: blog/templates/admin/change_list_results.html:19
+msgid "Toggle sorting"
+msgstr ""
+
+#: blog/templates/admin/delete_confirmation.html:10
+#: blog/templates/admin/submit_line.html:6
+msgid "Delete"
+msgstr ""
+
+#: blog/templates/admin/delete_confirmation.html:17
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '%(escaped_object)s' would result in deleting "
+"related objects, but your account doesn't have permission to delete the "
+"following types of objects:"
+msgstr ""
+
+#: blog/templates/admin/delete_confirmation.html:25
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '%(escaped_object)s' would require deleting the "
+"following protected related objects:"
+msgstr ""
+
+#: blog/templates/admin/delete_confirmation.html:33
+#, python-format
+msgid ""
+"Are you sure you want to delete the %(object_name)s \"%(escaped_object)s\"? "
+"All of the following related items will be deleted:"
+msgstr ""
+
+#: blog/templates/admin/delete_confirmation.html:38
+#: blog/templates/admin/delete_selected_confirmation.html:43
+msgid "Yes, I'm sure"
+msgstr ""
+
+#: blog/templates/admin/delete_selected_confirmation.html:9
+msgid "Delete multiple objects"
+msgstr ""
+
+#: blog/templates/admin/delete_selected_confirmation.html:16
+#, python-format
+msgid ""
+"Deleting the selected %(objects_name)s would result in deleting related "
+"objects, but your account doesn't have permission to delete the following "
+"types of objects:"
+msgstr ""
+
+#: blog/templates/admin/delete_selected_confirmation.html:24
+#, python-format
+msgid ""
+"Deleting the selected %(objects_name)s would require deleting the following "
+"protected related objects:"
+msgstr ""
+
+#: blog/templates/admin/delete_selected_confirmation.html:32
+#, python-format
+msgid ""
+"Are you sure you want to delete the selected %(objects_name)s? All of the "
+"following objects and their related items will be deleted:"
+msgstr ""
+
+#: blog/templates/admin/filter.html:2
+#, python-format
+msgid " By %(filter_title)s "
+msgstr ""
+
+#: blog/templates/admin/index.html:20
+#, python-format
+msgid "Models in the %(name)s application"
+msgstr ""
+
+#: blog/templates/admin/index.html:39
+msgid "Change"
+msgstr ""
+
+#: blog/templates/admin/index.html:49
+msgid "You don't have permission to edit anything."
+msgstr ""
+
+#: blog/templates/admin/index.html:57
+msgid "Recent Actions"
+msgstr ""
+
+#: blog/templates/admin/index.html:58
+msgid "My Actions"
+msgstr ""
+
+#: blog/templates/admin/index.html:62
+msgid "None available"
+msgstr ""
+
+#: blog/templates/admin/index.html:76
+msgid "Unknown content"
+msgstr ""
+
+#: blog/templates/admin/invalid_setup.html:12
+msgid ""
+"Something's wrong with your database installation. Make sure the appropriate "
+"database tables have been created, and make sure the database is readable by "
+"the appropriate user."
+msgstr ""
+
+#: blog/templates/admin/login.html:37
+msgid "Password:"
+msgstr ""
+
+#: blog/templates/admin/login.html:44
+msgid "Forgotten your password or username?"
+msgstr ""
+
+#: blog/templates/admin/login.html:48
+msgid "Log in"
+msgstr ""
+
+#: blog/templates/admin/object_history.html:22
+msgid "Date/time"
+msgstr ""
+
+#: blog/templates/admin/object_history.html:23
+msgid "User"
+msgstr ""
+
+#: blog/templates/admin/object_history.html:24
+msgid "Action"
+msgstr ""
+
+#: blog/templates/admin/object_history.html:38
+msgid ""
+"This object doesn't have a change history. It probably wasn't added via this "
+"admin site."
+msgstr ""
+
+#: blog/templates/admin/pagination.html:10
+msgid "Show all"
+msgstr ""
+
+#: blog/templates/admin/pagination.html:11
+#: blog/templates/admin/submit_line.html:3
+msgid "Save"
+msgstr ""
+
+#: blog/templates/admin/search_form.html:7
+msgid "Search"
+msgstr ""
+
+#: blog/templates/admin/search_form.html:9
+#, python-format
+msgid "%(counter)s result"
+msgid_plural "%(counter)s results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: blog/templates/admin/search_form.html:9
+#, python-format
+msgid "%(full_result_count)s total"
+msgstr ""
+
+#: blog/templates/admin/submit_line.html:8
+msgid "Save as new"
+msgstr ""
+
+#: blog/templates/admin/submit_line.html:9
+msgid "Save and add another"
+msgstr ""
+
+#: blog/templates/admin/submit_line.html:10
+msgid "Save and continue editing"
+msgstr ""
+
+#: blog/templates/admin/auth/user/add_form.html:6
+msgid ""
+"First, enter a username and password. Then, you'll be able to edit more user "
+"options."
+msgstr ""
+
+#: blog/templates/admin/auth/user/add_form.html:8
+msgid "Enter a username and password."
+msgstr ""
+
+#: blog/templates/admin/auth/user/change_password.html:31
+#, python-format
+msgid "Enter a new password for the user <strong>%(username)s</strong>."
+msgstr ""
+
+#: blog/templates/admin/auth/user/change_password.html:38
+msgid "Password"
+msgstr ""
+
+#: blog/templates/admin/auth/user/change_password.html:44
+msgid "Password (again)"
+msgstr ""
+
+#: blog/templates/admin/auth/user/change_password.html:45
+msgid "Enter the same password as above, for verification."
+msgstr ""
+
+#: blog/templates/admin/edit_inline/stacked.html:26
+#: blog/templates/admin/edit_inline/tabular.html:76
+msgid "Remove"
+msgstr ""
+
+#: blog/templates/admin/edit_inline/stacked.html:27
+#: blog/templates/admin/edit_inline/tabular.html:75
+#, python-format
+msgid "Add another %(verbose_name)s"
+msgstr ""
+
+#: blog/templates/admin/edit_inline/tabular.html:17
+msgid "Delete?"
+msgstr ""

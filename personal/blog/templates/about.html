@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load embed_video_tags %}
+{% url 'publications' year=2013  %}
+
+{% block title %}{{STATIC_URL}}{% endblock %}
+{% block content %}
+	<script type="text/javascript">
+			$(document).ready(function(){
+				//Examples of how to assign the Colorbox event to elements
+				$(".figures").colorbox({rel:'figures'});
+			});
+	</script>
+	<div style=" background:#eee;font-family:texgyreadventorregular; font-size:28px; border-bottom:0px solid #ccc;">
+		<div style="width: 1000px; margin: 0px auto; padding-top:10px; padding-bottom:10px;">
+			<span class="maintitle" style="font-family: texgyreadventorbold;">
+					ABOUT
+				</span>
+			<div class="cl"></div>
+		</div>
+	</div>
+	<div style="width: 1000px; margin: 0px auto;">
+		<div style="width:480px; margin-bottom:24px; padding-top:16px; border-top:4px solid #ccc; float: left; ">
+						
+			<div class="subtitleb" style="border-bottom:1px solid #ccc;">
+				about
+				&nbsp;
+				<span style="color:#aaa; font-family: texgyreadventorregular;">evangelos (vangelis) sariyanidi</span>
+			</div>
+			<div class="text" style="padding-top:6px;">
+				<div style="float:left; width:325px;">
+					Currently a PhD candidate <br/>
+					@ Queen Mary Univ. of London (QMUL) 
+					<div style="height:12px;"></div>			
+					Academically, interested in
+					theoretical/applied machine learning and computer vision.
+					<div style="height:12px;"></div>			
+					<a href='{% url 'about' %}'>read a bit more</a>
+				</div>
+				<div style="float:left; width:150px;">
+					<iframe width="150" height="140" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?ie=UTF8&amp;q=Queen+Mary+University+of+London&amp;fb=1&amp;gl=uk&amp;hq=Queen+Mary+University+of+London&amp;hnear=Queen+Mary+University+of+London&amp;cid=13892663523312534809&amp;ll=51.524067,-0.040374&amp;spn=0.006295,0.006295&amp;t=m&amp;iwloc=A&amp;output=embed"></iframe></small>	
+				</div>
+				<div class="cl"></div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!--  PROJECTS -->
+		<div style="width:480px; margin-bottom:24px; margin-left:24px; padding-top:12px; border-top:4px solid #ccc; float: left;">
+			
+
+
+
+		
+		</div>
+		<div class="cl"></div>
+				
+		
+		
+	</div>
+	<div class="cl"></div>
+{% endblock %}

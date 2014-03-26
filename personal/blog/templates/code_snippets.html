@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load embed_video_tags %}
+{% url 'publications' year=2013  %}
+
+{% block title %}{{STATIC_URL}}{% endblock %}
+{% block content %}
+	<script type="text/javascript">
+			$(document).ready(function(){
+				//Examples of how to assign the Colorbox event to elements
+				$(".figures").colorbox({rel:'figures'});
+			});
+			
+			
+			function toggle_code(id)
+			{
+				$("#code-"+id).toggle();
+				if ($('#code-'+id)[0].style.display == "none")
+				{
+					$("#code-title-"+id).removeClass('code_title_shown');
+					$("#code-title-"+id).addClass('code_title_hidden');			
+				}
+				else
+				{
+					$("#code-title-"+id).removeClass('code_title_hidden');			
+					$("#code-title-"+id).addClass('code_title_shown');			
+				}
+			}
+	</script>
+	<style type="text/css">
+	 	.code_title_hidden {
+	 		padding-left:24px;
+			background:url('{{STATIC_URL}}/design/arrow_right.png') no-repeat left center;
+		}
+
+	 	.code_title_shown {
+		 	padding-left:24px;
+			background:url('{{STATIC_URL}}/design/arrow_down.png')  no-repeat left center;
+		}
+	</style>
+	<div style=" background:#eee;font-family:texgyreadventorregular; font-size:28px; border-bottom:4px solid #ccc;">
+		<div style="width: 1000px; margin: 0px auto; padding-top:10px; padding-bottom:10px;">	
+<span class="maintitle" style="font-family: texgyreadventorbold;">CODE SNIPPETS</span>
+		</div>
+	</div>
+	<div style="width: 1000px; margin: 0px auto; padding-top:16px;">
+	{% for c in code_snippets %}
+	<div style="width:720px; border-bottom:1px solid #ccc;">
+		<a class="subtitleb" href="#" onclick="toggle_code({{c.id}})">{{c.title}}</a>
+	</div>
+	<div style="margin-bottom:12px; padding:5px; padding-left:6px; width:690px;">
+		<div style="padding:0px; padding-left:5px; padding-top:10px; text-align:left;" class="tinytitle">
+			<span style="background: #eee; padding:2px;">{{c.programming_language}}</span> 
+			&nbsp; <span style="color:#bbb;">&mdash;</span> &nbsp; {{c.text|linebreaksbr}}
+		</div>
+		<div id="code-title-{{c.id}}" class="code_title_hidden minititle" style="text-align:left;24px; margin-top:6px;">
+		<a href='#'  onclick="toggle_code({{c.id}})">CODE</a></div>
+		<div id="code-{{c.id}}" style="display: none; padding:10px; margin:3px; border:1px solid #ccc; font-size:10pt;">
+				<pre>{{c.code}}</pre>
+		</div>
+	</div>
+	{% endfor %}
+	
+	<div class="cl"></div>
+	
+	</div>
+	<div class="cl"></div>
+{% endblock %}

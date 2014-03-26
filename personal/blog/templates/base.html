@@ -1,0 +1,47 @@
+{% load staticfiles %}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+<title>{% block title %}{% endblock %}</title>
+<script src="{% static "js/jquery-1.8.3.min.js" %}"></script>
+<link rel="stylesheet" href="{% static "css/fonts/stylesheet.css" %}" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="{% static "css/colorbox.css" %}" type="text/css" charset="utf-8" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="{% static "js/colorbox/jquery.colorbox.js" %}"></script>
+</head>
+<body>
+<div>
+<div style="text-align:center; margin-top:-20px; background:url('{% static "design/banner.png" %}') repeat-x; height:30px;"></div>
+<div style="padding-top:17px; padding-bottom:10px; text-align:center;">
+<!-- <img src="{% static "design/menu.png" %}" /> -->
+<div  class="main_menu" style="width:1000px;">
+	<div class="item">/<a href='{% url 'index' %}' class="{% if page == "index" %}selected_cat{% endif %}">index</a> </div>
+	<div class="item">/<a href='{% url 'articles' %}' class="{% if page == "articles" %}selected_cat{% endif %}">blog</a></div>
+	<div class="item">/<a href='{% url 'projects' %}' class="{% if page == "projects" %}selected_cat{% endif %}">projects</a></div>
+	<div class="item">/<a href='{% url 'publications' %}' class="{% if page == "publications" %}selected_cat{% endif %}">publications</a></div>
+	<div class="item">/<a href='{% url 'resources' %}' class="{% if page == "resources" %}selected_cat{% endif %}">resources</a></div>
+	<div class="item">/<a href='{% url 'code_snippets' %}' class="{% if page == "code_snippets" %}selected_cat{% endif %}">code_snipptes</a></div>
+	<div class="item">/<a href='{% url 'about' %}' class="{% if page == "about" %}selected_cat{% endif %}">about</a></div>
+	<div class="cl"></div>
+	</div>
+</div>
+<div style="text-align:center; border-bottom: 4px solid #ccc; background:url('{% static "design/banner_rev.png" %}') repeat-x; height:30px;"></div>
+</div>
+<!-- <div  style="padding-top:14px; background-color:#faf2fa; background:url('{% static "design/bg2.png" %}')"> -->
+<div style="background-color:#fdfdfd;">
+	{% block content %}{% endblock %}
+	{% block footer %}
+	<div id="bottom"  style="margin-top:24px; background-color:#eee; border-top:4px solid #ccc; min-height: 80px;">
+		<div style="width:1000px; margin:0 auto; padding-top:20px; font-size:11px;">
+			created by e. sariyanidi. coded using python <a href="http://www.djangoproject.com">django</a> 
+				&mdash; source code available in <a href="{% url 'resources' %}">resources</a>.	
+			<div>visual components designed using <a href="http://en.wikipedia.org/wiki/Inkscape">Inkscape</a></div>
+		</div>
+	</div>
+	{% endblock %}
+</div>
+</body>
+</html>

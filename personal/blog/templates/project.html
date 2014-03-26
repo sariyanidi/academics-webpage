@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load embed_video_tags %}
+{% url 'publications' year=2013  %}
+
+{% block title %}{{STATIC_URL}}{% endblock %}
+{% block content %}
+	<script type="text/javascript">
+			$(document).ready(function(){
+				//Examples of how to assign the Colorbox event to elements
+				$(".figures").colorbox({rel:'figures'});
+			});
+	</script>
+	<div style=" background:#eee;font-family:texgyreadventorregular; font-size:28px; border-bottom:0px solid #ccc;">
+		<div style="width: 1000px; margin: 0px auto; padding-top:10px; padding-bottom:10px;">
+					<div style="color:#666; font-size:11pt; " class="sans">/<span class="sans">projects &mdash;</span>
+					<a href="{% url 'projects'%}">see all</a></div>
+		
+<span class="maintitle" style="font-family: texgyreadventorbold;">{{cproject.title}}</span>
+		</div>
+	</div>
+	<div style="width: 1000px; margin: 0px auto;">
+	
+		<!--   TEXT & REFS  -->
+		<div style="float:left; width: 480px; border-top:4px solid #ccc; " class="text">
+			<div class="mini_date">{{cproject.date_created}}</div>
+			<div class="cl"></div>
+			<div style="padding-right:20px; margin-top:18px; ">
+			{{cproject.text|linebreaksbr}}
+			</div>
+			<div style="margin-top:30px;" class="subtitle">Related references</div>
+				<div class="hr" style="margin-bottom:8px;"></div>
+			{% if cproject.publications.all.count > 0 %}
+				{% for pub in cproject.publications.all %}
+				<div style="font-size:10pt; padding-bottom:4px;">
+					<div class="pub_short">[{{pub.short}}] </div>
+					<div class="pub_long"> 
+					{{pub.authors}}, <em>"{{pub.title}}"</em>, {{pub.conference_id.title}}, {{pub.year}}</div>
+					<div class="cl"></div>
+				</div>
+				{% endfor %}
+			{% endif %}
+		</div>
+		
+		<!--   IMAGES  -->
+		<div style="float:left; width=120px; margin-left:20px; margin-top:10px;">
+			<div class="minititle" style="margin-bottom:10px;">IMAGES/FIGURES</div>
+			<div class="project">
+			{% for image in cproject.get_images %}
+			<div style="margin-bottom:14px;">
+			<a class="figures" href="{{ MEDIA_URL  }}/med{{image}}"><img src="{{ MEDIA_URL  }}/l_tn{{image}}" {{image}} alt="{{image.text|striptags}}" /></a> 
+			<div class="tinytitle">{{image.title}}</div>
+			</div>
+			
+			{% endfor %}
+			</div>
+		</div>
+		
+		<!--   VIDEOS  -->
+		<div style="float:left; width:320px; margin-top:10px; margin-left:20px">
+					<div class="minititle" style="margin-bottom:10px;">VIDEOS</div>
+			<div>
+			{% for video in cproject.get_videos %}
+			{{video|embed:'320x240'}}
+			{% endfor %}
+			</div>
+		</div>
+	</div>
+	<div class="cl"></div>
+{% endblock %}

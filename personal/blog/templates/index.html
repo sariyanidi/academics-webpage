@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% load embed_video_tags %}
+{% url 'publications' year=2013  %}
+
+{% block title %}{{STATIC_URL}}{% endblock %}
+{% block content %}
+	<script type="text/javascript">
+			$(document).ready(function(){
+				//Examples of how to assign the Colorbox event to elements
+				$(".figures").colorbox({rel:'figures'});
+			});
+	</script>
+	<div style=" background:#eee;font-family:texgyreadventorregular; font-size:28px; border-bottom:0px solid #ccc;">
+		<div style="width: 1000px; margin: 0px auto; padding-top:10px; padding-bottom:10px;">
+			<div style="width: 480px; float: left;">
+	<span class="maintitle" style="font-family: texgyreadventorbold;">
+		<span style="color:#bbb; font-family: texgyreadventorregular;">@</span>home</span><span style="color:#ccc; font-family: texgyreadventorregular;">page 
+		of e. sariyanidi</span>
+			</div>
+			<div class="cl"></div>
+		</div>
+	</div>
+	<div style="width: 1000px; margin: 0px auto;">
+		<div style="width:480px;padding-top:12px; border-top:4px solid #ccc; float: left; ">
+			<!-- ARTICLE 1 -->
+			<div class="subtitleb" style="border-bottom:1px solid #ccc; margin-bottom:10px;">
+				<a class="subtitleb" href='{% url 'article' article.title|slugify article.id%}'>{{article.title}}</a>
+				<span style="color:#aaa; font-family: texgyreadventorregular;">&mdash; blog entries </span>
+			</div>
+			
+			<div style="float:left; border:1px solid #ccc; padding:4px;">
+				<a href="{% url 'article' article.title|slugify  article.id %}"><img src="{{ MEDIA_URL  }}/l_tn{{article.getFirstImage}}"/></a>
+			</div>
+			
+			<div style="float:left; margin-left:10px; width:320px;" class="text">{{article.text | truncatechars:150}}
+				<div class="tinytitle" style="text-align: left;">
+					<a class="tinytitleb" href='{% url 'article' article.title|slugify  article.id %}'>read+</a> 
+				</div>
+							<div class="mini_date" style="margin-bottom:10px; padding-top:1px;">{{article.date_created}}</div>
+				
+			</div>
+			<div class="cl"></div>
+			
+			
+			<!-- ARTICLE 2 -->
+			<div class="subtitleb" style="margin-top:12px; border-bottom:1px solid #ccc; margin-bottom:10px;">
+				<a class="subtitleb" href='{% url 'article' article2.title|slugify article2.id%}'>{{article2.title}}</a>
+			</div>
+			
+						
+			<div style="float:left; width:335px;" class="text">{{article2.text | truncatechars:150}}
+				<div class="tinytitle" style="text-align: left;">
+					<a class="tinytitleb" href='{% url 'article' article2.title|slugify  article2.id %}'>read</a> 
+				</div>
+				
+				<div class="mini_date" style="margin-bottom:10px; padding-top:1px;">{{article2.date_created}}</div>
+			</div>
+						<div style="float:left; border:1px solid #ccc; padding:4px;margin-left:10px; ">
+				<a href="{% url 'article' article2.title|slugify  article2.id %}"><img src="{{ MEDIA_URL  }}/l_tn{{article2.getFirstImage}}"/></a>
+			</div>
+			
+			
+			<div class="cl"></div>
+			
+			
+			<div class="subtitleb" style="border-bottom:1px solid #ccc; margin-top:12px;">
+				other blog entries on...
+			</div>
+			<div style="font-size:9pt;" class="sansb">
+				{% for c in categories %}
+				<a href='{% url 'articles' c.title|slugify c.id %}'>{{c.title|upper}}</a>
+					{% if not forloop.last %}
+					<span style="color:#ccc;'">&nbsp;&mdash;&nbsp;</span>
+					{% endif %}
+				{% endfor %}
+			</div> 
+			
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- ABOUT -->
+		<div style="width:480px; margin-bottom:24px; margin-left:24px; padding-top:12px; border-top:4px solid #ccc; float: left;">
+			
+			
+			
+			
+			
+			<div class="subtitleb" style="border-bottom:1px solid #ccc; ">
+				about
+				&nbsp;
+				<span style="color:#777; font-family: texgyreadventorregular;">evangelos (vangelis) sariyanidi</span>
+			</div>
+			<div class="text" style="padding-top:6px;">
+				<div style="float:left; width:425px;">
+					Currently a PhD candidate <br/>
+					@ Queen Mary Univ. of London (QMUL) 
+					<div style="height:8px;"></div>			
+					Academically, interested in
+					theoretical/applied machine learning and computer vision. <a href='{% url 'about' %}'>read a bit more+</a>
+					<div style="height:8px;"></div>			
+					
+				</div>
+				<!-- 
+					
+				<div style="float:left; width:150px; width:320px;">
+					<iframe width="150" height="140" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?ie=UTF8&amp;q=Queen+Mary+University+of+London&amp;fb=1&amp;gl=uk&amp;hq=Queen+Mary+University+of+London&amp;hnear=Queen+Mary+University+of+London&amp;cid=13892663523312534809&amp;ll=51.524067,-0.040374&amp;spn=0.006295,0.006295&amp;t=m&amp;iwloc=A&amp;output=embed"></iframe></small>	
+				</div>
+					-->
+				<div class="cl"></div>
+			</div>
+			
+			
+			
+			<div class="subtitleb" style="border-bottom:1px solid #ccc;margin-top:18px; ">
+				any interesting stuff here?
+			</div>
+			
+			<div class="text" style="padding-top:6px;">
+				Several academic <a href="{% url 'projects' %}">projects</a> page such as 
+				<span class="sansb">face recognition</span> or visual <span class="sansb">place recognition</span>.
+					<div style="height:8px;"></div>
+				At least part of the source code of projects in the <a href="{% url 'resources' %}">resources</a> page. 
+				There you'll also find other pieces of code such as the source code of <span class="sansb">this web site</span>.
+					<div style="height:8px;"></div>
+				<!-- 
+					
+				<div style="float:left; width:150px; width:320px;">
+					<iframe width="150" height="140" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?ie=UTF8&amp;q=Queen+Mary+University+of+London&amp;fb=1&amp;gl=uk&amp;hq=Queen+Mary+University+of+London&amp;hnear=Queen+Mary+University+of+London&amp;cid=13892663523312534809&amp;ll=51.524067,-0.040374&amp;spn=0.006295,0.006295&amp;t=m&amp;iwloc=A&amp;output=embed"></iframe></small>	
+				</div>
+					-->
+				<div class="cl"></div>
+			</div>
+			
+		</div>
+		<div class="cl"></div>
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+	<div class="cl"></div>
+{% endblock %}

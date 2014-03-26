@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load embed_video_tags %}
+{% url 'publications' year=2013  %}
+
+{% block title %}{{STATIC_URL}}{% endblock %}
+{% block content %}
+	<script type="text/javascript">
+			$(document).ready(function(){
+				//Examples of how to assign the Colorbox event to elements
+				$(".figures").colorbox({rel:'figures'});
+			});
+	</script>
+	<div style=" background:#eee;font-family:texgyreadventorregular; font-size:28px; border-bottom:0px solid #ccc;">
+		<div style="width: 1000px; margin: 0px auto; padding-top:10px; padding-bottom:10px;">
+					<div style="color:#666; font-size:11pt; " class="sans">/<span class="sans">blog &mdash;</span>
+					<a href="{% url 'articles'%}">see all</a></div>
+	
+<span class="maintitle" style="font-family: texgyreadventorbold;">{{article.title}}</span>
+		</div>
+	</div>
+	<div style="width: 1000px; margin: 0px auto;">
+	
+		<!--   TEXT & REFS  -->
+		<div style="float:left; width: 450px; border-top:4px solid #ccc; " class="text">
+			<div class="mini_date">{{article.date_created}}</div>
+			<div class="cl"></div>
+			<div style="padding-right:20px; margin-top:18px; ">
+				{{article.text|linebreaksbr}}
+			</div>
+		</div>
+		
+		<!--   IMAGES  -->
+		<div style="float:left; width:290px; margin-left:20px; margin-top:10px;">
+			<div class="minititle" style="margin-bottom:10px;">IMAGES/FIGURES</div>
+			{% for image in article.get_images %}
+			<div class="project" style=" float: left; margin-right:10px;">
+			<div style="margin-bottom:14px;">
+			<a class="figures" href="{{ MEDIA_URL  }}/med{{image}}"><img src="{{ MEDIA_URL  }}/l_tn{{image}}" {{image}} alt="{{image.text|striptags}}" /></a> 
+			<div class="tinytitle">{{image.title}}</div>
+			</div>
+			</div>
+			
+			{% endfor %}
+		</div>
+		
+		
+		<!--   OTHER ARTICLES  -->
+		<div style="float:left; width:220px; margin-top:10px; margin-left:20px">
+					<div class="minititle" style="margin-bottom:10px;">OTHER ARTICLES	</div>
+			<div>
+			</div>
+		</div>
+	</div>
+	<div class="cl"></div>
+{% endblock %}

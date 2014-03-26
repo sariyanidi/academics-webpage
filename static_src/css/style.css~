@@ -1,0 +1,26 @@
+* {
+	margin:0;
+	padding: 0;
+	border:none;
+}
+
+body {
+	font-family: 'texgyrepagellaregular'; /* latin_modern_roman10_regular texgyrepagellaregular */
+	font-size: 13pt;
+	color: #333;
+	background-color: #fff;
+}
+
+h1,h2 {
+	font-style: bold;
+	font-family: 'texgyreadventorregular';
+} /* latin_modern_roman10_bold texgyreadventorbold texgyreoagellabold */
+
+h1 {
+	font-size: 20pt;
+	color: #9E0000;
+}
+
+div.cl {clear:both;}
+
+div.hr { border-bottom:1px solid #ccc; height:0px; }
