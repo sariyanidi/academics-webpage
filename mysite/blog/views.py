@@ -2,7 +2,7 @@ from django.views.generic import TemplateView
 from django.db.models.query import QuerySet
 from django.conf import settings
 from models import Publication, Project, Code, CodeSnippet, Article, Category
-from personal.blog.models import ProjectImage, ProjectVideo
+from mysite.blog.models import ProjectImage, ProjectVideo
 
 class PublicationsView(TemplateView):
     

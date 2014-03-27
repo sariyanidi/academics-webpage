@@ -1,5 +1,5 @@
 """
-Django settings for personal project.
+Django settings for mysite project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -15,6 +15,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 import sys
 sys.path.append(BASE_DIR+'/packages')
 sys.path.append(BASE_DIR+'/packages/generic')
+sys.path.append(BASE_DIR+'/lib/python2.7/site-packages')
 
 M_TN_SIZE = 50
 L_TN_SIZE = 120
@@ -46,7 +47,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'personal.blog',
+    'mysite.blog',
     'south',
     'embed_video'
 )
@@ -57,7 +58,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
       'django.core.context_processors.request',
       'django.contrib.messages.context_processors.messages',
       'django.core.context_processors.static',
-      'personal.processor.context_personal_settings'
+      'mysite.processor.context_personal_settings'
 )
 
 
@@ -77,9 +78,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
 )
 
-ROOT_URLCONF = 'personal.urls'
+ROOT_URLCONF = 'mysite.urls'
 
-WSGI_APPLICATION = 'personal.wsgi.application'
+WSGI_APPLICATION = 'mysite.wsgi.application'
 
 
 # Database
@@ -100,7 +101,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-BASE_URL = '127.0.0.1:8000'
+#BASE_URL = '127.0.0.1:8000'
+BASE_URL = 'sariyanidi.pythonanywhere.com'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -120,14 +122,15 @@ MEDIA_URL = "http://"+BASE_URL+'/media/'
 
 STATICFILES_DIRS = (os.path.join(os.path.dirname(__file__), '../static_src').replace('\\','/'), MEDIA_ROOT,)
 
+import MySQLdb
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'personal',
-        'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD': '',
+        'NAME': 'sariyanidi$default',
+        'HOST': 'mysql.server',
+        'USER': 'sariyanidi',
+        'PASSWORD': 'acomplicatedpassword',
         'OPTIONS': {
                     'init_command': 'SET storage_engine=INNODB,character_set_connection=utf8,collation_connection=utf8_unicode_ci'
         },
