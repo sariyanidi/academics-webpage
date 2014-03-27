@@ -2,7 +2,6 @@
 {% load embed_video_tags %}
 {% url 'publications' year=2013  %}
 
-{% block title %}{{STATIC_URL}}{% endblock %}
 {% block content %}
 	<script type="text/javascript">
 			$(document).ready(function(){
@@ -28,7 +27,7 @@
 				<span style="color:#aaa; font-family: texgyreadventorregular;">&mdash; blog entries </span>
 			</div>
 			
-			<div style="float:left; border:1px solid #ccc; padding:4px;">
+			<div style="float:left; border:1px solid #ccc; padding:6px;">
 				<a href="{% url 'article' article.title|slugify  article.id %}"><img src="{{ MEDIA_URL  }}/l_tn{{article.getFirstImage}}"/></a>
 			</div>
 			
@@ -55,14 +54,14 @@
 				
 				<div class="mini_date" style="margin-bottom:10px; padding-top:1px;">{{article2.date_created}}</div>
 			</div>
-						<div style="float:left; border:1px solid #ccc; padding:4px;margin-left:10px; ">
+						<div style="float:left; border:1px solid #ccc; padding:6px;margin-left:10px; ">
 				<a href="{% url 'article' article2.title|slugify  article2.id %}"><img src="{{ MEDIA_URL  }}/l_tn{{article2.getFirstImage}}"/></a>
 			</div>
 			
 			
 			<div class="cl"></div>
 			
-			
+			<!-- 
 			<div class="subtitleb" style="border-bottom:1px solid #ccc; margin-top:12px;">
 				other blog entries on...
 			</div>
@@ -73,7 +72,8 @@
 					<span style="color:#ccc;'">&nbsp;&mdash;&nbsp;</span>
 					{% endif %}
 				{% endfor %}
-			</div> 
+			</div>
+			 --> 
 			
 		</div>
 
@@ -103,7 +103,7 @@
 				<span style="color:#777; font-family: texgyreadventorregular;">evangelos (vangelis) sariyanidi</span>
 			</div>
 			<div class="text" style="padding-top:6px;">
-				<div style="float:left; width:425px;">
+				<div style="float:left; width:385px;">
 					Currently a PhD candidate <br/>
 					@ Queen Mary Univ. of London (QMUL) 
 					<div style="height:8px;"></div>			
@@ -111,13 +111,12 @@
 					theoretical/applied machine learning and computer vision. <a href='{% url 'about' %}'>read a bit more+</a>
 					<div style="height:8px;"></div>			
 					
-				</div>
+				</div> 
 				<!-- 
-					
-				<div style="float:left; width:150px; width:320px;">
+				<div style="float:left; width:150px; width:150px;">
 					<iframe width="150" height="140" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?ie=UTF8&amp;q=Queen+Mary+University+of+London&amp;fb=1&amp;gl=uk&amp;hq=Queen+Mary+University+of+London&amp;hnear=Queen+Mary+University+of+London&amp;cid=13892663523312534809&amp;ll=51.524067,-0.040374&amp;spn=0.006295,0.006295&amp;t=m&amp;iwloc=A&amp;output=embed"></iframe></small>	
 				</div>
-					-->
+				 -->
 				<div class="cl"></div>
 			</div>
 			

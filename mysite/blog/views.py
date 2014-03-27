@@ -11,7 +11,7 @@ class PublicationsView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(TemplateView, self).get_context_data(**kwargs)
         context['page'] = 'publications'
-        
+        context['title'] = 'Publications'
         
         from django.db.models import Min,Max
         pubData = Publication.objects.all().aggregate(Min('year'),Max('year'))
@@ -23,8 +23,6 @@ class PublicationsView(TemplateView):
 
 
 
-
-
 class ResourcesView(TemplateView):
     
     template_name = 'resources.html'
@@ -32,6 +30,7 @@ class ResourcesView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(TemplateView, self).get_context_data(**kwargs)
         context['page'] = 'resources'
+        context['title'] = 'Resources'
                 
         context['resources'] = [code  for code in Code.objects.all()]
         return context
@@ -46,18 +45,18 @@ class CodeSnippetsView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(TemplateView, self).get_context_data(**kwargs)
         context['page'] = 'code_snippets'
+        context['title'] = "Code Snippets"
         
         context['code_snippets'] = [snippet for snippet in CodeSnippet.objects.all()]
         return context
     
-    
-
 class AboutView(TemplateView):
     template_name = 'about.html'
 
     def get_context_data(self, **kwargs):
         context = super(TemplateView, self).get_context_data(**kwargs)
         context['page'] = 'about'
+        context['title'] = 'About '
         
         return context
     
@@ -69,6 +68,7 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(TemplateView, self).get_context_data(**kwargs)
         context['page'] = 'index'
+        context['title'] = 'Home page'
         
         
         context['categories'] =  Category.objects.all()
@@ -90,14 +90,14 @@ class ProjectView(TemplateView):
         context = super(TemplateView, self).get_context_data(**kwargs)
         context['page'] = 'projects'
         
-        
         from django.db.models import Min,Max
         projectId=int(kwargs['id'])
         
         if projectId != 0:
             context['cproject'] = Project.objects.get(id=projectId)
+            context['title'] = context['cproject'].title + " - Projects "
         return context
-
+    
 
 class ProjectsView(TemplateView):
     
@@ -106,7 +106,7 @@ class ProjectsView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(TemplateView, self).get_context_data(**kwargs)
         context['page'] = 'projects'
-        
+        context['title'] = 'Projects'
         
         from django.db.models import Min,Max
         context['projects'] = (project for project in Project.objects.all())
@@ -128,6 +128,8 @@ class ArticleView(TemplateView):
         
         if articleId != 0:
             context['article'] = Article.objects.get(id=articleId)
+            context['title'] =  context['article'].title + ' - Articles'
+
         return context
     
 
@@ -137,8 +139,9 @@ class ArticlesView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super(TemplateView, self).get_context_data(**kwargs)
-        context['page'] = 'articles'
-        
+        context['page'] = 'article'
+        context['title'] = 'Articles'
+
         catId = 0
         
         if 'id' in kwargs.keys():

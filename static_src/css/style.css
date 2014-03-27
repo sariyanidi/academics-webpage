@@ -46,11 +46,10 @@ h1 {
 	font-size: 17px;
 	font-family: sans;
 	font-size: 14px;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 15px;
 	*/
-	
-	font-size:14px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 13px;
+
 	line-height: 1.5em;
 }
 
@@ -81,7 +80,7 @@ div.hr { border-bottom:1px solid #ccc; height:0px; }
 
 
 
-div.pub_short { max-width:100px; float:left; margin-right:4px; }
+div.pub_short { max-width:100px; width:40px; float:left; margin-right:4px; }
 div.pub {max-width: 360px; float:left; }
 
 
