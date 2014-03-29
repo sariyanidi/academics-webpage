@@ -2,6 +2,9 @@
 {% load embed_video_tags %}
 {% url 'publications' year=2013  %}
 
+{% load markdown_deux_tags %}
+
+
 {% block content %}
 	<script type="text/javascript">
 			$(document).ready(function(){
@@ -31,7 +34,7 @@
 				<a href="{% url 'article' article.title|slugify  article.id %}"><img src="{{ MEDIA_URL  }}/l_tn{{article.getFirstImage}}"/></a>
 			</div>
 			
-			<div style="float:left; margin-left:10px; width:320px;" class="text">{{article.text | truncatechars:150}}
+			<div style="float:left; margin-left:10px; width:320px;" class="text">{{article.text | markdown |truncatechars:250}}
 				<div class="tinytitle" style="text-align: left;">
 					<a class="tinytitleb" href='{% url 'article' article.title|slugify  article.id %}'>read+</a> 
 				</div>
@@ -40,21 +43,19 @@
 			</div>
 			<div class="cl"></div>
 			
-			
 			<!-- ARTICLE 2 -->
 			<div class="subtitleb" style="margin-top:12px; border-bottom:1px solid #ccc; margin-bottom:10px;">
 				<a class="subtitleb" href='{% url 'article' article2.title|slugify article2.id%}'>{{article2.title}}</a>
 			</div>
-			
 						
-			<div style="float:left; width:335px;" class="text">{{article2.text | truncatechars:150}}
+			<div style="float:left; width:335px;" class="text">{{article2.text | markdown  | truncatechars:250}}
 				<div class="tinytitle" style="text-align: left;">
-					<a class="tinytitleb" href='{% url 'article' article2.title|slugify  article2.id %}'>read</a> 
+					<a class="tinytitleb" href='{% url 'article' article2.title|slugify  article2.id %}'>read+</a> 
 				</div>
 				
 				<div class="mini_date" style="margin-bottom:10px; padding-top:1px;">{{article2.date_created}}</div>
 			</div>
-						<div style="float:left; border:1px solid #ccc; padding:6px;margin-left:10px; ">
+				<div style="float:left; border:1px solid #ccc; padding:6px;margin-left:10px; ">
 				<a href="{% url 'article' article2.title|slugify  article2.id %}"><img src="{{ MEDIA_URL  }}/l_tn{{article2.getFirstImage}}"/></a>
 			</div>
 			
@@ -74,29 +75,11 @@
 				{% endfor %}
 			</div>
 			 --> 
-			
 		</div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 		<!-- ABOUT -->
 		<div style="width:480px; margin-bottom:24px; padding-left:24px; padding-top:12px; border-top:4px solid #ccc; float: left;">
-			
-			
-			
-			
-			
 			<div class="subtitleb" style="border-bottom:1px solid #ccc; ">
 				about
 				&nbsp;

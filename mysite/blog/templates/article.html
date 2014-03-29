@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load embed_video_tags %}
 {% url 'publications' year=2013  %}
+{% load markdown_deux_tags %}
 
 {% block content %}
 	<script type="text/javascript">
@@ -20,16 +21,16 @@
 	<div style="width: 1000px; margin: 0px auto;">
 	
 		<!--   TEXT & REFS  -->
-		<div style="float:left; width: 450px; border-top:4px solid #ccc; " class="text">
+		<div style="float:left; width: 410px; border-top:4px solid #ccc; " class="text">
 			<div class="mini_date">{{article.date_created}}</div>
 			<div class="cl"></div>
 			<div style="padding-right:20px; margin-top:18px; ">
-				{{article.text|linebreaksbr}}
+				{{article.text|markdown|linebreaks}}
 			</div>
 		</div>
 		
 		<!--   IMAGES  -->
-		<div style="float:left; width:290px; margin-left:20px; margin-top:10px;">
+		<div style="float:left; max-width:290px; margin-left:20px; margin-top:10px;">
 			<div class="minititle" style="margin-bottom:10px;">IMAGES/FIGURES</div>
 			{% for image in article.get_images %}
 			<div class="project" style=" float: left; margin-right:10px;">
@@ -44,9 +45,19 @@
 		
 		
 		<!--   OTHER ARTICLES  -->
-		<div style="float:left; width:220px; margin-top:10px; margin-left:20px">
-					<div class="minititle" style="margin-bottom:10px;">OTHER ARTICLES	</div>
+		<div style="float:left; width:260px; margin-top:10px; margin-left:20px">
+			<div class="minititle" style="margin-bottom:10px;">OTHER ARTICLES	</div>
 			<div>
+			
+			{% for a in articles %}
+			<div style=">
+				<div class="subtitleb" style="border-bottom:1px solid #ccc; margin-bottom:18px;">
+					<a class="subtitleb" style="font-size:13px;" href='{% url 'article' a.title|slugify a.id%}'>{{a.title}}</a>
+					<div class="mini_date" style="margin-bottom:6px; padding-top:1px;">{{a.date_created}}</div>
+				</div>
+				
+			</div>
+			{% endfor %}
 			</div>
 		</div>
 	</div>

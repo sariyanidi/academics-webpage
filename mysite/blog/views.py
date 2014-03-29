@@ -122,8 +122,8 @@ class ArticleView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(TemplateView, self).get_context_data(**kwargs)
         context['page'] = 'articles'
-        
-        
+        context['articles'] = [article for article in Article.objects.all()]
+
         articleId=int(kwargs['id'])
         
         if articleId != 0:
