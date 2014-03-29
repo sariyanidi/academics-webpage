@@ -39,7 +39,7 @@
 			<a href="{% url 'article' a.title|slugify  a.id %}"><img src="{{ MEDIA_URL  }}/l_tn{{a.getFirstImage}}"/></a>
 		</div>
 		
-		<div style="float:left; margin-left:10px; width:320px;" class="text">{{a.text | truncatechars:120}}
+		<div style="float:left; margin-left:10px; width:320px;" class="text">{{a.text | markdown | striptags | truncatechars:120}}
 			<div class="tinytitle" style="text-align: left;"> <a class="tinytitleb" href='{% url 'article' a.title|slugify  a.id %}'>read</a> 
 			</div>
 			

@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load embed_video_tags %}
 {% url 'publications' year=2013  %}
+{% load markdown_deux_tags %}
+{% load custom_tags %}
 
 {% block content %}
 	<script type="text/javascript">
@@ -23,12 +25,14 @@
 		<div style="float:left; width:130px;">
 			<a href="{% url 'project' p.title|slugify p.id%}"><img src="{{ MEDIA_URL  }}/l_tn{{p.getFirstImage}}"/></a>
 		</div>
-		<div style="float:left; margin-left:4px; width:300px;" class="text">{{p.text | truncatechars:120}}
-		<div class="hr" style="margin-top:8px; margin-bottom:8px;"></div>
-		<div class="tinytitle" style="text-align: left;"> <a class="tinytitleb" href='{% url 'project' p.title|slugify p.id%}	'>see project</a> 
-		
-		<span style="color:#aaa;"> &nbsp; &mdash; &nbsp;
-		 {{p.get_videos|length}} videos,&nbsp; {{p.get_images|length}} images +code</span></div></div>
+		<div style="float:left; margin-left:4px; width:300px;" class="text">{{p.text | markdown | striptags |truncatechars:180}}
+			<div class="hr" style="margin-top:8px; margin-bottom:8px;"></div>
+			<div class="tinytitle" style="text-align: left;"> <a class="tinytitleb" href='{% url 'project' p.title|slugify p.id%}	'>see project</a> 
+			
+				<span style="color:#aaa;"> &nbsp; &mdash; &nbsp;
+				 {{p.get_videos|length}} videos,&nbsp; {{p.get_images|length}} images +code</span>
+			 </div>
+		 </div>
 	</div>
 	{% endfor %}
 	<div class="cl"></div>

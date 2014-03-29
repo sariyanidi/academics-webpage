@@ -34,7 +34,7 @@
 				<a href="{% url 'article' article.title|slugify  article.id %}"><img src="{{ MEDIA_URL  }}/l_tn{{article.getFirstImage}}"/></a>
 			</div>
 			
-			<div style="float:left; margin-left:10px; width:320px;" class="text">{{article.text | markdown |truncatechars:250}}
+			<div style="float:left; margin-left:10px; width:320px;" class="text">{{article.text | markdown | striptags |truncatechars:250}}
 				<div class="tinytitle" style="text-align: left;">
 					<a class="tinytitleb" href='{% url 'article' article.title|slugify  article.id %}'>read+</a> 
 				</div>
@@ -48,7 +48,7 @@
 				<a class="subtitleb" href='{% url 'article' article2.title|slugify article2.id%}'>{{article2.title}}</a>
 			</div>
 						
-			<div style="float:left; width:335px;" class="text">{{article2.text | markdown  | truncatechars:250}}
+			<div style="float:left; width:335px;" class="text">{{article2.text | markdown | striptags | truncatechars:250}}
 				<div class="tinytitle" style="text-align: left;">
 					<a class="tinytitleb" href='{% url 'article' article2.title|slugify  article2.id %}'>read+</a> 
 				</div>
