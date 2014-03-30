@@ -112,7 +112,15 @@ class Project(models.Model):
         return [y for y in ProjectImage.objects.filter(entity_id_id__exact=self.id)]
     
     def getFirstImage(self):
-        return ProjectImage.objects.filter(entity_id_id__exact=self.id)[0]
+        try:
+            p = ProjectImage.objects.filter(entity_id_id__exact=self.id)[0]
+        except IndexError:
+            p = None
+            
+        if None != p:
+            return p
+        else:
+            return "default.png"
  
     def get_videos(self):
         return [str(y) for y in ProjectVideo.objects.filter(entity_id_id__exact=self.id)]
@@ -197,9 +205,19 @@ class Article(models.Model):
     def get_images(self):
         return [y for y in ArticleImage.objects.filter(entity_id_id__exact=self.id)]
     
+
     def getFirstImage(self):
-        return ArticleImage.objects.filter(entity_id_id__exact=self.id)[0]
-    
+        try:
+            p = ArticleImage.objects.filter(entity_id_id__exact=self.id)[0]
+        except IndexError:
+            p = None
+            
+        if None != p:
+            return p
+        else:
+            return "default.png"
+ 
+ 
     class Meta:
         ordering = ('position',)
 

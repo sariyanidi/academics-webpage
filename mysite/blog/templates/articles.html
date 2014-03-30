@@ -36,11 +36,15 @@
 			<a class="subtitleb" href='{% url 'article' a.title|slugify a.id%}'>{{a.title}}</a>
 		</div>
 		
+		{% if "default.png" != a.getFirstImage %}
 		<div style="float:left; border:1px solid #ccc; padding:4px; ">
 			<a href="{% url 'article' a.title|slugify  a.id %}"><img src="{{ MEDIA_URL  }}/l_tn{{a.getFirstImage}}"/></a>
 		</div>
+		{% endif %}
 		
-		<div style="float:left; margin-left:10px; width:320px;" class="text">{{a.text | markdown | striptags | truncatechars:120}}
+		<div style="float:left; 
+		{% if "default.png" != a.getFirstImage %}margin-left:10px;  width:320px;{% else %} width:440px; {%endif%}
+		" class="text">{{a.text | markdown | striptags | truncatechars:120}}
 			<div class="tinytitle" style="text-align: left;"> <a class="tinytitleb" href='{% url 'article' a.title|slugify  a.id %}'>read</a> 
 			</div>
 			
