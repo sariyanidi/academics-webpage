@@ -31,7 +31,7 @@
 			{% if r.git_link|length %}
 				{% if r.file|length %} &nbsp;<span style="color:#aaa;">&mdash;</span>&nbsp; 
 				go to {% endif %}
-				<a href="{{ MEDIA_URL }}{{r.file}}"  class="bold">github link</a>
+				<a href="{{r.git_link}}"  class="bold">github link</a>
 			{% endif %}
 		</div>
 	</div>
