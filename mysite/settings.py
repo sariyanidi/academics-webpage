@@ -49,7 +49,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'mysite.blog',
     'south',
-    'embed_video'
+    'embed_video',
+    'markdown_deux'
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -60,8 +61,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
       'django.core.context_processors.static',
       'mysite.processor.context_personal_settings'
 )
-
-
 
 LOCALE_PATHS = (
     BASE_DIR+'/locale',
@@ -101,8 +100,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-#BASE_URL = '127.0.0.1:8000'
-BASE_URL = 'sariyanidi.pythonanywhere.com'
+BASE_URL = '127.0.0.1:8000'
+#BASE_URL = 'sariyanidi.pythonanywhere.com'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -127,12 +126,13 @@ import MySQLdb
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sariyanidi$default',
-        'HOST': 'mysql.server',
-        'USER': 'sariyanidi',
-        'PASSWORD': 'acomplicatedpassword',
+        'NAME': 'personal',
+        'HOST': 'localhost',
+        'USER': 'root',
+        'PASSWORD': '',
         'OPTIONS': {
                     'init_command': 'SET storage_engine=INNODB,character_set_connection=utf8,collation_connection=utf8_unicode_ci'
         },
     }
 }
+
