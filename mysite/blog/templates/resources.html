@@ -25,10 +25,13 @@
 				{{r.details|linebreaksbr}}
 		</div>
 		<div style="text-align: left; font-size:9pt;" class="reg">
+			{% if r.file|length %}
 			<a href="{{ MEDIA_URL }}{{r.file}}" class="bold">DOWNLOAD</a> 
+			{% endif %}
 			{% if r.git_link|length %}
-				&nbsp;<span style="color:#aaa;">&mdash;</span>&nbsp; 
-				go to <a href="{{ MEDIA_URL }}{{r.file}}"  class="reg">github link</a>
+				{% if r.file|length %} &nbsp;<span style="color:#aaa;">&mdash;</span>&nbsp; 
+				go to {% endif %}
+				<a href="{{r.git_link}}"  class="bold">github link</a>
 			{% endif %}
 		</div>
 	</div>

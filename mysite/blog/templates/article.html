@@ -21,7 +21,7 @@
 	<div style="width: 1000px; margin: 0px auto;">
 	
 		<!--   TEXT & REFS  -->
-		<div style="float:left; width: 410px; border-top:4px solid #ccc; " class="text">
+		<div style="float:left; width: {% if "default.png" != article.getFirstImage %}410px{% else %} 600px {% endif %}; border-top:4px solid #ccc; " class="text">
 			<div class="mini_date">{{article.date_created}}</div>
 			<div class="cl"></div>
 			<div style="padding-right:20px; margin-top:18px; ">
@@ -29,6 +29,7 @@
 			</div>
 		</div>
 		
+		{% if "default.png" != article.getFirstImage %}
 		<!--   IMAGES  -->
 		<div style="float:left; max-width:290px; margin-left:20px; margin-top:10px;">
 			<div class="minititle" style="margin-bottom:10px;">IMAGES/FIGURES</div>
@@ -42,16 +43,17 @@
 			
 			{% endfor %}
 		</div>
+		{% endif %}
 		
 		
 		<!--   OTHER ARTICLES  -->
 		<div style="float:left; width:260px; margin-top:10px; margin-left:20px">
-			<div class="minititle" style="margin-bottom:10px;">OTHER ARTICLES	</div>
+			<div class="minititle" style="margin-bottom:2px; text-align: left;">OTHER ARTICLES	</div>
 			<div>
 			
 			{% for a in articles %}
-			<div style=">
-				<div class="subtitleb" style="border-bottom:1px solid #ccc; margin-bottom:18px;">
+			<div>
+				<div class="subtitleb" style="margin-bottom:6px;">
 					<a class="subtitleb" style="font-size:13px;" href='{% url 'article' a.title|slugify a.id%}'>{{a.title}}</a>
 					<div class="mini_date" style="margin-bottom:6px; padding-top:1px;">{{a.date_created}}</div>
 				</div>
